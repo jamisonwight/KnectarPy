@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}User Login{% endblock %}
+
+{% block content %}
+  <div class="well col-md-6">
+    {% if form.errors %}
+      <p>Sorry, your <span>username</span> or <span>password</span> did not match</p>
+    {% endif %}
+
+    <h2>Login</h2>
+    <form role="form" class="form-horizontal" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Login" />
+      <input type="hidden" name="next" value="{{ next }}">
+    </form>
+  </div>
+
+{% endblock %}
+

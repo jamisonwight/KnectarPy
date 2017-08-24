@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title%}Home{% endblock %}
+
+  {% block content %}
+
+    <!--display information based on authentication-->
+    {% if user.is_authenticated %}
+      <h1>Welcome {{ user.username }}!</h1>
+    {% else%}
+      <h1>Welcome to the site!</h1>
+      <p>
+        <a href="{% url 'login' %}">Click here to login</a>
+        <a href="#">Sign Up</a>
+      </p>
+    {% endif %}
+sd
+    <!--Main content-->
+    <p>{{ message }}</p>
+    <a href="#" class="btn btn-primary">Get Started</a>
+
+  {% endblock %}

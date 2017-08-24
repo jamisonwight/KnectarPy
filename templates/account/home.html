@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title%}User Account{% endblock %}
+
+{% block content %}
+  <h1>Welcome {{ user.username }}!</h1>
+  {% comment %}<div class="well col-md-6">
+    {% include "tictactoe/games_list_snippet.html" with header="Games Waiting for Your Move" games_list=waiting_games %}
+    {% include "tictactoe/games_list_snippet.html" with header="Other Active Games" games_list=other_games %}
+    {% include "tictactoe/games_list_snippet.html" with header="Finished Games" games_list=finished_games %}
+  </div>
+
+  <div class="well col-sm-4 col-sm-push-1">
+    {% if invitations %}
+      <h3 class="panel-header">Game Invitations</h3>
+      <div class="list-group">
+        {% for inv in invitations %}
+          <a href="{% url 'tictactoe_invitation' pk=inv.id %}" class="list-group-item">
+            {{ inv.from_user.username }} has invited you to a game. Click here to begin!
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <span>No new invitations</span>
+    {% endif %}
+
+    <a href="{% url 'tictactoe_invite' %}">Invite another user to play a game</a>
+  </div>{% endcomment %}
+{% endblock %}

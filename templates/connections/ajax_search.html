@@ -1,0 +1,15 @@
+
+{% if users.count > 0 %}
+
+  {% for user in users %}
+    <li class="user-select" data-user-select="{{ user.username }}"><a href="#">{{ user.username }}</a></option>
+  {% endfor %}
+
+  <script>
+
+  </script>
+
+{% else %}
+  <span class="search-not-found">Sorry, no user connections found</span>
+
+{% endif %}
